@@ -1,0 +1,35 @@
+.button {
+  border-radius: 2rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.primary {
+  background: var(--blue);
+  color: var(--portage-dark);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.ghost {
+  background: transparent;
+  border: 2px solid var(--portage);
+  color: var(--portage);
+}
+
+.cta {
+  background: var(--yellow);
+  color: var(--portage-dark);
+  font-size: 1.1rem;
+  animation: pulse 2.5s infinite;
+}
+
+.button:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(253,218,93,0.4); }
+  50% { box-shadow: 0 0 20px rgba(253,218,93,0.6); }
+}

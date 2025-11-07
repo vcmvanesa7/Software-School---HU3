@@ -1,0 +1,43 @@
+.footer {
+  background: linear-gradient(180deg, var(--portage-dark), var(--portage));
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.col h3, .col h4 {
+  color: var(--yellow);
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.col p, .col a {
+  font-size: 0.9rem;
+  color: #fff;
+  opacity: 0.85;
+}
+
+.col a:hover {
+  color: var(--yellow);
+}
+
+.copy {
+  opacity: 0.8;
+  font-size: 0.85rem;
+}
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
