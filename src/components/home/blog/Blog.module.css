@@ -1,0 +1,30 @@
+.blog {
+  padding: 4rem 1rem;
+  background: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  font-size: 2rem;
+  color: var(--portage-dark);
+  font-weight: 800;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.excerpt {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0.8rem 0;
+  line-height: 1.5;
+}
