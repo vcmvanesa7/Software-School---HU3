@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import styles from "./Hero.module.css";
 import { motion } from "framer-motion";
 import ButtonHome from "../ButtonHome/ButtonHome";
@@ -32,7 +31,7 @@ export default function Hero() {
           <ButtonHome variant="cta">Inscríbete</ButtonHome>
           <ButtonHome variant="ghost">Conócenos</ButtonHome>
         </div>
-        <image
+        <img
           src="/images/mascotHero.png"
           alt="Mascota"
           className={styles.mascot}
