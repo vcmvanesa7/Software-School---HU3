@@ -1,0 +1,13 @@
+
+.base {
+  border-radius: 9999px;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: transform .12s ease;
+}
+.base:active { transform: scale(.98); }
+
+/* variantes */
+.primary { background: var(--blue); color: var(--portage-dark); box-shadow: 0 6px 18px rgba(34,55,144,.06);}
+.ghost { background: transparent; border: 1px solid var(--portage); color: var(--portage); }
+.cta { background: var(--yellow); color: var(--portage-dark); font-size: 1.05rem;}
