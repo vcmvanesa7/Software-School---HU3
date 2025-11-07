@@ -16,6 +16,13 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    /* CSS HEX */;
+    --ice-cold: #b3eeff;
+    --blue: #49c5d1;
+    --yellow: #feda5d;
+    --portage: #8d88e8;
+    --portage: #223790;
+
   }
 }
 
@@ -24,3 +31,4 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
