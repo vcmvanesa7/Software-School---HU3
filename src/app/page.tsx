@@ -6,10 +6,10 @@ import Footer from "@/components/home/Footer/Footer";
 export default function HomeLandingPage() {
   return (
     <>
-      <Hero />
-      <Activities />
+      {/* <Hero /> */}
+      {/* <Activities />
       <BlogSection />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }
