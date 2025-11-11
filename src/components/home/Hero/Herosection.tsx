@@ -31,11 +31,11 @@ export default function Hero() {
           <ButtonHome variant="cta">Inscríbete</ButtonHome>
           <ButtonHome variant="ghost">Conócenos</ButtonHome>
         </div>
-        <img
+        {/* <img
           src="/images/mascotHero.png"
           alt="Mascota"
           className={styles.mascot}
-        />
+        /> */}
       </motion.div>
     </section>
   );
