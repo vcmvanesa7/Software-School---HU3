@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styles from "./Blog.module.css";
-import CardHome from "../cardHome/CardHome";
+import { CardHome } from "../cardHome/CardHome";
 import ButtonHome from "../ButtonHome/ButtonHome";
 
 const posts = [

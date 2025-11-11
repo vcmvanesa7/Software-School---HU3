@@ -23,19 +23,17 @@ export default function Hero() {
         transition={{ duration: 0.8 }}
         className={styles.content}
       >
-        <h1 className={styles.title}>
-          kirin Art School
-        </h1>
+        <img
+          src="/img/imagotipo.png"
+          alt="shield"
+          className={styles.imagotipo}
+        />
+
         <p>Aprendemos jugando, soñando y creando juntos.</p>
         <div className={styles.buttons}>
           <ButtonHome variant="cta">Inscríbete</ButtonHome>
           <ButtonHome variant="ghost">Conócenos</ButtonHome>
         </div>
-        {/* <img
-          src="/images/mascotHero.png"
-          alt="Mascota"
-          className={styles.mascot}
-        /> */}
       </motion.div>
     </section>
   );

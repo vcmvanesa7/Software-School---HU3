@@ -53,10 +53,9 @@
   gap: 1rem;
 }
 
-.mascot {
-  width: 200px;
+.imagotipo {
+  width: 500px;
   margin: 2rem auto 0;
-  animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {

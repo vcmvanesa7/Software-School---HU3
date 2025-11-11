@@ -17,9 +17,19 @@
   gap: 2rem;
 }
 
-.emoji {
+.icon {
   font-size: 2.5rem;
   animation: bounce 2s infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem 0;
+  color: #0a1d75;
 }
 
 @keyframes bounce {
