@@ -1,10 +1,40 @@
-import styles from './Herosection.module.css';
+"use client";
 
-<div className={`${styles.hero} flex items-center`}>
-  <div className="flex-1">
-    <h1 className="text-4xl md:text-6xl font-extrabold">Escuela Mágica <span className="text-[var(--yellow)]">Arcoíris</span></h1>
-  </div>
-  <div className={`${styles.mascot} hidden md:block`}>
-    <img src="/images/mascot-face.png" alt="Mascota" />
-  </div>
-</div>
+import styles from "./Hero.module.css";
+import { motion } from "framer-motion";
+import ButtonHome from "../ButtonHome/ButtonHome";
+
+export default function Hero() {
+  return (
+    <section className={styles.hero}>
+      <video
+        className={styles.video}
+        src="/videos/HeroHome.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      <div className={styles.overlay}></div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className={styles.content}
+      >
+        <img
+          src="/img/imagotipo.png"
+          alt="shield"
+          className={styles.imagotipo}
+        />
+
+        <p>Aprendemos jugando, soñando y creando juntos.</p>
+        <div className={styles.buttons}>
+          <ButtonHome variant="cta">Inscríbete</ButtonHome>
+          <ButtonHome variant="ghost">Conócenos</ButtonHome>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
