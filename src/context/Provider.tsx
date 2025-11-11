@@ -18,7 +18,7 @@ export const Provider = ({ children }: Props) => {
   const [mounted, setMounted] = useState(false);
 
   // ✅ Restaurar usuario desde localStorage
-  useEffect(() => {
+  useEffect( () => {
     setMounted(true);
     try {
       const storedUser = localStorage.getItem("userLogged");

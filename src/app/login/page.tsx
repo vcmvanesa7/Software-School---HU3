@@ -16,6 +16,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   const handleClick = async () => {
+     console.log("Sign In button clicked ✅");
     if (!user || !pass) {
       notification("Please enter your email and password.", "warning");
       return;
