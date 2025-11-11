@@ -7,7 +7,7 @@
 .activities h2 {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--portage-dark);
+  color: var(--blue);
   margin-bottom: 2rem;
 }
 
@@ -29,8 +29,9 @@
   font-size: 1.25rem;
   font-weight: 700;
   margin: 1rem 0 0.5rem 0;
-  color: #0a1d75;
+  color: var(--bluedark);
 }
+
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
