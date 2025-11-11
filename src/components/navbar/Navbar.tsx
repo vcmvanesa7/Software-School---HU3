@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import styles from "./Navbar.module.css";
-import { Menu, X } from "lucide-react";
+import styles from "./navbar.module.css";
+import { Menu, X, House, User } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -11,16 +11,28 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo}>
-        <Link href="/">Kirin<span>Art</span></Link>
-      </div>
+      <Link href="/">
+        <img src="/img/logotipo.png" alt="Kirin Art School Logo" width="100px" />
+      </Link>
 
       <div className={`${styles.links} ${open ? styles.open : ""}`}>
-        <Link href="/">Home</Link>
-        <Link href="/about">About Us</Link>
-        <Link href="/courses">Courses</Link>
-        <Link href="/contact">Contact</Link>
-        <Link href="/register">Register</Link>
+        <div className={styles.sectionCenter}>
+          <Link href="/about">About Us</Link>
+          <Link href="/courses">Courses</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
+
+        <div className={styles.sectionRight}>
+          <Link href="/" className={styles.iconLink}>
+            <House size={18} />
+            <span>Home</span>
+          </Link>
+
+          <Link href="/register" className={styles.iconLink}>
+            <User size={18} />
+            <span>Register</span>
+          </Link>
+        </div>
       </div>
 
       <button className={styles.menuBtn} onClick={toggleMenu}>
