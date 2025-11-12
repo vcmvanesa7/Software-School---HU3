@@ -1,0 +1,120 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #050a22;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* --- Logo --- */
+.navbar img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.navbar img:hover {
+  transform: scale(1.05);
+}
+
+/* --- Contenedor general de los links --- */
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1; /* ocupa todo el espacio entre logo y menú derecho */
+  margin-left: 2rem;
+}
+
+/* --- Sección central (About / Courses / Contact) --- */
+.sectionCenter {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+/* --- Sección derecha (Home / Register) --- */
+.sectionRight {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* --- Enlaces --- */
+.links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.links a:hover {
+  color: #e6b400;
+  transform: translateY(-2px);
+}
+
+.iconLink {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* --- Botón hamburguesa --- */
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1100;
+  transition: transform 0.2s ease;
+}
+
+.menuBtn:hover {
+  transform: scale(1.1);
+}
+
+/* --- Modo móvil --- */
+@media (max-width: 768px) {
+  .menuBtn {
+    display: block;
+  }
+
+  .links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #050a22f2;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 220px;
+    padding: 1rem 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -4px 0 12px #0000004d;
+  }
+
+  .links.open {
+    transform: translateX(0);
+  }
+
+  .sectionCenter,
+  .sectionRight {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    width: 100%;
+  }
+
+  .links a {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+}

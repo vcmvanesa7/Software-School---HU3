@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import style from "./register.module.css"
 
 const RegisterForm = () => {
 
@@ -44,101 +45,120 @@ const RegisterForm = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="max-w-sm mx-auto bg-white p-6 rounded-2xl shadow-lg border border-violet-300 mt-12"
+            className={` max-w-sm mx-auto text-white p-6 rounded-xl shadow-2xl gap-10 mt-12  flex flex-col`}
         >
-            <h2 className="text-2xl font-bold text-center mb-4 text-violet-700">
-                Register — Kirin Art School 🎨
-            </h2>
+            <div className="flex justify-center ">
+                <div className=" w-[100px]">
+                    <img src="/img/isotipo.png" alt="" />
+                </div>
+            </div>
+            <div className="flex gap-10">
+                <div className="flex flex-col gap-1">
+                    <div>
+                        <label className="block  text-black font-medium">
+                            Full Name:
+                        </label>
+                        <input
+                            type="text"
+                            name="FullName"
+                            placeholder="John Doe"
+                            value={formData.FullName}
+                            onChange={handleChange}
+                            required
+                            className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:shadow-xl"
+                        />
+                    </div>
+                    <div>
+                        <label className="block  text-black font-medium">
+                            Username:
+                        </label>
+                        <input
+                            type="text"
+                            name="Username"
+                            placeholder="john123"
+                            value={formData.Username}
+                            onChange={handleChange}
+                            required
+                            className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:shadow-xl"
+                        />
+                    </div>
+                    <div>
+                        <label className="block  text-black font-medium">
+                            Email:
+                        </label>
+                        <input
+                            type="email"
+                            name="Email"
+                            placeholder="email@email..."
+                            value={formData.Email}
+                            onChange={handleChange}
+                            required
+                            className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:shadow-xl"
+                        />
+                    </div>
+                </div>
+                <div className="flex flex-col gap-1 jus">
+                    <div>
+                        <label className="block  text-black font-medium">
+                            Password:
+                        </label>
+                        <input
+                            type="password"
+                            name="Password"
+                            placeholder="********"
+                            value={formData.Password}
+                            onChange={handleChange}
+                            required
+                            className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:shadow-xl"
+                        />
+                    </div>
+                    <div>
+                        {/* Grade */}
+                        <label className="block  text-black font-medium">
+                            Grade:
+                        </label>
+                        <select
+                            name="Grade"
+                            value={formData.Grade}
+                            onChange={handleChange}
+                            required
+                            className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-black bggray-placeholder-gray-400s:outline-none focus:shadow-xl"
+                        >
+                            <option value="">Selecciona tu grado</option>
+                            <option value="3">3°</option>
+                            <option value="4">4°</option>
+                            <option value="5">5°</option>
+                        </select>
+                    </div>
+                    <div className=" h-[100px] flex items-center">
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className={`w-full font-semibold py-2 px-4 rounded-lg transition ${loading
+                                ? "bg-violet-300 text-white cursor-not-allowed"
+                                : "bg-[#050a22]  hover:text-[#fdda5d99] text-white"
+                                }`}
+                        >
+                            {loading ? "Sending..." : "Register"}
+                        </button>
+                    </div>
 
-            {/* Full Name */}
-            <label className="block mb-2 text-violet-600 font-medium">
-                Full Name:
-            </label>
-            <input
-                type="text"
-                name="fullName"
-                placeholder="John Doe"
-                value={formData.FullName}
-                onChange={handleChange}
-                required
-                className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-violet-800 placeholder-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
-            />
 
-            {/* Username */}
-            <label className="block mb-2 text-violet-600 font-medium">
-                Username:
-            </label>
-            <input
-                type="text"
-                name="userName"
-                placeholder="john123"
-                value={formData.Username}
-                onChange={handleChange}
-                required
-                className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-violet-800 placeholder-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
-            />
 
-            {/* Email */}
-            <label className="block mb-2 text-violet-600 font-medium">
-                Email:
-            </label>
-            <input
-                type="email"
-                name="email"
-                placeholder="email@email..."
-                value={formData.Email}
-                onChange={handleChange}
-                required
-                className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-violet-800 placeholder-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
-            />
+            </div>
+        </div>
 
-            {/* Password */}
-            <label className="block mb-2 text-violet-600 font-medium">
-                Password:
-            </label>
-            <input
-                type="password"
-                name="password"
-                placeholder="********"
-                value={formData.Password}
-                onChange={handleChange}
-                required
-                className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-violet-800 placeholder-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
-            />
 
-            {/* Grade */}
-            <label className="block mb-2 text-violet-600 font-medium">
-                Grade:
-            </label>
-            <select
-                name="grade"
-                value={formData.Grade}
-                onChange={handleChange}
-                required
-                className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-violet-800 bg-white focus:outline-none focus:ring-2 focus:ring-violet-500"
-            >
-                <option value="">Selecciona tu grado</option>
-                <option value="3">3°</option>
-                <option value="4">4°</option>
-                <option value="5">5°</option>
-            </select>
 
-            {/* Submit Button */}
-            <button
-                type="submit"
-                disabled={loading}
-                className={`w-full font-semibold py-2 px-4 rounded-lg transition ${loading
-                    ? "bg-violet-300 text-white cursor-not-allowed"
-                    : "bg-violet-600 hover:bg-violet-700 text-white"
-                    }`}
-            >
-                {loading ? "Sending..." : "Register ✨"}
-            </button>
 
-            {message && (
-                <p className="mt-3 text-center text-violet-700 font-medium">{message}</p>
-            )}
-        </form>
+
+
+    {
+        message && (
+            <p className="mt-3 text-center text-violet-700 font-medium">{message}</p>
+        )
+    }
+        </form >
     );
 }
 export default RegisterForm

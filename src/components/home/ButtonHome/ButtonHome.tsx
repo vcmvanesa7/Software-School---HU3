@@ -1,18 +1,16 @@
-// components/ui/Button.tsx
 "use client";
 import React from "react";
-import styles from "./Button.module.css";
+import styles from "./ButtonHome.module.css";
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type Props = {
   variant?: "primary" | "ghost" | "cta";
+  children: React.ReactNode;
+  onClick?: () => void;
 };
 
-export default function Button({ variant = "primary", className = "", children, ...rest }: Props) {
+export default function ButtonHome({ variant = "primary", children, onClick }: Props) {
   return (
-    <button
-      className={`${styles.base} ${styles[variant]} ${className}`}
-      {...rest}
-    >
+    <button className={`${styles.button} ${styles[variant]}`} onClick={onClick}>
       {children}
     </button>
   );
