@@ -1,4 +1,8 @@
 @import "tailwindcss";
+:root {
+  font-family: var(--font-cinzel), serif;
+}
+
 
 :root {
   --background: #ffffff;
