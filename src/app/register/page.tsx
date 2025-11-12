@@ -1,13 +1,12 @@
-"use client"
-import { data } from 'framer-motion/client'
-import Link from 'next/link'
-import React, { useState } from 'react'
+"use client";
+import { useState } from "react";
 
+const RegisterForm = () => {
 
-export const Register = () => {
-
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState<string | null>(null);
     const [error, setError] = useState([])
-    const [dataForm, setDataForm] = useState({
+    const [formData, setDataForm] = useState({
         FullName: "",
         Username: "",
         Email: "",
@@ -15,53 +14,131 @@ export const Register = () => {
         Grade: ""
 
     })
-    const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e) => {
         setDataForm({
-            ...dataForm,
+            ...formData,
             [e.target.name]: e.target.value,
         })
     }
 
-
-    const sendRegister = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setLoading(true);
+        setMessage(null);
+
+        const res = await fetch("/api/sendEmail", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: formData.Email }),
+        });
+
+        const data = await res.json();
+        setLoading(false);
+        setMessage(data.message);
+
+
     };
-
-    
-
 
 
 
     return (
-        <section className='flex justify-center items-center h-[100vh]'>
-            <form className='bg-gray-100 p-10 rounded-xl flex flex-col gap-5' onSubmit={sendRegister}>
-                <div>
-                    <h1 className='text-black text-2xl font-bold justify-center flex'>¡Registrate como estudiante!</h1>
-                </div>
-                <div className='flex gap-5'>
-                    <div className='flex flex-col gap-5'>
-                        <input onChange={inputChange} name='FullName' type="text" value={dataForm.FullName} className='p-2 bg-gray-200 focus:outline-none rounded-md text-black' placeholder='Nombre completo' />
-                        <input onChange={inputChange} name='Username' type="text" value={dataForm.Username} className='p-2 bg-gray-200 focus:outline-none rounded-md text-black' placeholder='Nombre de usuario' />
-                        <input onChange={inputChange} name='Email' type="emal" value={dataForm.Email} className='p-2 bg-gray-200 focus:outline-none rounded-md text-black' placeholder='Correo' />
-                    </div>
-                    <div className='flex flex-col justify-between'>
-                        <div className='flex flex-col gap-5'>
-                            <input onChange={inputChange} name='Password' value={dataForm.Password} type="password" className='p-2 bg-gray-200 focus:outline-none rounded-md text-black' placeholder='Contraseña' />
-                            <input onChange={inputChange} name='Grade' value={dataForm.Grade} type="text" className='p-2 bg-gray-200 focus:outline-none rounded-md text-black' placeholder='Grado' />
-                        </div>
-                        <div className='flex '>
-                            <button className='p-2 bg-blue-400 rounded-md'>Registrar</button>
-                        </div>
-                    </div>
-                </div>
-                <div className='flex justify-center  '>
-                    <p className='text-black'>Registrate como <Link href={"register/teacher"} className='font-bold text-blue-400'>profesor</Link> </p>
-                </div>
-                
-            </form>
-        </section>
-    )
+        <form
+            onSubmit={handleSubmit}
+            className="max-w-sm mx-auto bg-white p-6 rounded-2xl shadow-lg border border-violet-300 mt-12"
+        >
+            <h2 className="text-2xl font-bold text-center mb-4 text-violet-700">
+                Register — Kirin Art School 🎨
+            </h2>
+
+            {/* Full Name */}
+            <label className="block mb-2 text-violet-600 font-medium">
+                Full Name:
+            </label>
+            <input
+                type="text"
+                name="fullName"
+                placeholder="John Doe"
+                value={formData.FullName}
+                onChange={handleChange}
+                required
+                className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-violet-800 placeholder-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
+            />
+
+            {/* Username */}
+            <label className="block mb-2 text-violet-600 font-medium">
+                Username:
+            </label>
+            <input
+                type="text"
+                name="userName"
+                placeholder="john123"
+                value={formData.Username}
+                onChange={handleChange}
+                required
+                className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-violet-800 placeholder-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
+            />
+
+            {/* Email */}
+            <label className="block mb-2 text-violet-600 font-medium">
+                Email:
+            </label>
+            <input
+                type="email"
+                name="email"
+                placeholder="email@email..."
+                value={formData.Email}
+                onChange={handleChange}
+                required
+                className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-violet-800 placeholder-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
+            />
+
+            {/* Password */}
+            <label className="block mb-2 text-violet-600 font-medium">
+                Password:
+            </label>
+            <input
+                type="password"
+                name="password"
+                placeholder="********"
+                value={formData.Password}
+                onChange={handleChange}
+                required
+                className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-violet-800 placeholder-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
+            />
+
+            {/* Grade */}
+            <label className="block mb-2 text-violet-600 font-medium">
+                Grade:
+            </label>
+            <select
+                name="grade"
+                value={formData.Grade}
+                onChange={handleChange}
+                required
+                className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-violet-800 bg-white focus:outline-none focus:ring-2 focus:ring-violet-500"
+            >
+                <option value="">Selecciona tu grado</option>
+                <option value="3">3°</option>
+                <option value="4">4°</option>
+                <option value="5">5°</option>
+            </select>
+
+            {/* Submit Button */}
+            <button
+                type="submit"
+                disabled={loading}
+                className={`w-full font-semibold py-2 px-4 rounded-lg transition ${loading
+                    ? "bg-violet-300 text-white cursor-not-allowed"
+                    : "bg-violet-600 hover:bg-violet-700 text-white"
+                    }`}
+            >
+                {loading ? "Sending..." : "Register ✨"}
+            </button>
+
+            {message && (
+                <p className="mt-3 text-center text-violet-700 font-medium">{message}</p>
+            )}
+        </form>
+    );
 }
-
-
-export default Register
+export default RegisterForm
