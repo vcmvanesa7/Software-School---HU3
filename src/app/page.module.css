@@ -1,0 +1,6 @@
+
+.main {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, var(--ice-cold) 0%, #fff 100%);
+}
