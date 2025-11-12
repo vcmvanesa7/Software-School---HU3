@@ -1,48 +1,40 @@
 "use client";
 
-import { JSX, useState, useEffect } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import { MyContext, UserLog } from "./Context";
 
 interface Props {
-  children: JSX.Element | JSX.Element[];
+  children: ReactNode;
 }
 
 export const Provider = ({ children }: Props) => {
-  const [userLogged, setUserLogged] = useState<UserLog>({
-    username: "",
-    role: "user",
-    isActive: false,
-    createdAt: "",
-  });
+  const [userLogged, setUserLogged] = useState<UserLog | null>(null);
   const [isActive, setIsActive] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
-  // ✅ Restaurar usuario desde localStorage
-  useEffect( () => {
-    setMounted(true);
-    try {
-      const storedUser = localStorage.getItem("userLogged");
-      if (storedUser) {
-        const parsedUser: UserLog = JSON.parse(storedUser);
-        if (parsedUser.username && parsedUser.role) {
-          setUserLogged(parsedUser);
-          setIsActive(!!parsedUser.isActive);
+  useEffect(() => {
+    const restoreUser = () => {
+      try {
+        const storedUser = localStorage.getItem("userLogged");
+        if (storedUser) {
+          const parsedUser: UserLog = JSON.parse(storedUser);
+          if (parsedUser.userName && parsedUser.role) {
+            setUserLogged(parsedUser);
+            setIsActive(true);
+          }
         }
+      } catch (error) {
+        console.error("Error leyendo localStorage:", error);
       }
-    } catch (error) {
-      console.error("Error leyendo localStorage:", error);
-    }
+    };
+
+    setTimeout(restoreUser, 0);
   }, []);
 
-  // 💾 Guardar usuario cuando cambia
   useEffect(() => {
-    if (userLogged && userLogged.username) {
+    if (userLogged) {
       localStorage.setItem("userLogged", JSON.stringify(userLogged));
     }
   }, [userLogged]);
-
-  // 🚫 Evita render hasta montar en cliente
-  if (!mounted) return null;
 
   return (
     <MyContext.Provider

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://webescuela-production.up.railway.app/api"; //API_URL de C#
+const API_URL = "https://webescuela-production.up.railway.app/api";
 
 export const loginUser = async (userName: string, password: string) => {
   try {
@@ -15,12 +15,12 @@ export const loginUser = async (userName: string, password: string) => {
       throw new Error("No se recibió el token de autorización");
     }
 
+    // Guardar datos relevantes
     localStorage.setItem("token", data.token);
     localStorage.setItem("userName", data.userName);
     localStorage.setItem("role", data.role);
 
-    return data
-  
+    return data;
   } catch (error: any) {
     const msg =
       error.response?.data?.message ||
@@ -29,6 +29,7 @@ export const loginUser = async (userName: string, password: string) => {
     throw new Error(msg);
   }
 };
+
 
 
 export const getUser = async () => {
