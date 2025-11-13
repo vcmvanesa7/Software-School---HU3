@@ -21,7 +21,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Kirin Art School",
-  description: "A elite place to learn and create art",
+  description: "Learning through creativity 🎨",
+  icons: {
+    icon: "/img/imagotipo.png", 
+  },
 };
 
 export default function RootLayout({

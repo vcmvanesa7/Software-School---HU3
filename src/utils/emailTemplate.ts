@@ -10,23 +10,23 @@ export function createEmailTemplate() {
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #F8F6FF;
-      color: #222;
+      color: #ededed;
       padding: 0;
       margin: 0;
     }
 
     .container {
-      background: #fff;
+      background: #050a22; /* --bluedark */
       max-width: 600px;
       margin: 30px auto;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 6px 15px rgba(138, 43, 226, 0.25);
-      border: 2px solid #8A2BE2;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+      border: 2px solid #BCA16A; /* --gold */
     }
 
     .header {
-      background: linear-gradient(90deg, #8A2BE2, #5E1BA6);
+      background: linear-gradient(90deg, #0b255c, #050a22); /* blue → bluedark */
       color: #fff;
       padding: 25px;
       text-align: center;
@@ -42,48 +42,51 @@ export function createEmailTemplate() {
       font-size: 16px;
       line-height: 1.7;
       text-align: center;
+      color: #ededed;
     }
 
     .content h2 {
-      color: #8A2BE2;
+      color: #BCA16A; /* gold */
       margin-bottom: 15px;
     }
 
     .footer {
-      background: #F8F6FF;
+      background: #050a22; /* bluedark */
       text-align: center;
       font-size: 12px;
       padding: 12px;
-      color: #555;
-      border-top: 1px solid #E6E1FF;
+      color: #aaa;
+      border-top: 1px solid #BCA16A; /* gold */
     }
 
     .btn {
       display: inline-block;
-      background: #8A2BE2;
-      color: white;
+      background: #050a22; /* bluedark */
+      color: #BCA16A; /* gold */
       padding: 10px 20px;
       border-radius: 8px;
       text-decoration: none;
       margin-top: 20px;
       font-weight: 600;
-      transition: background 0.3s ease;
+      border: 1px solid #BCA16A;
+      transition: all 0.3s ease;
     }
 
     .btn:hover {
-      background: #5E1BA6;
+      background: #BCA16A;
+      color: #050a22;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="cid:kirin-art-logo" alt="Kirin Art School Logo" />
+      <img src="cid:imagotipo.png" alt="Kirin Art School Logo" />
       <h1>Welcome to Kirin Art School!</h1>
     </div>
 
     <div class="content">
-      <h2>Your artistic journey begins here 🎨</h2>
+      <h2>Your Artistic Journey Begins Here </h2>
       <p>
         Hello!!!, welcome to the <strong>Kirin Art School</strong> community! We're absolutely delighted to have you join us.
       </p>
@@ -92,7 +95,7 @@ export function createEmailTemplate() {
         Every brushstroke tells a story — a story of growth, expression, and inspiration.  
         Let's make this journey as colorful and bright as your dreams. 🌈🖌️🎨
       </p>
-      <a class="btn">Visit Our Website</a>
+      <a class="btn" href="https://kirinartschool.com">Visit Our Website</a>
     </div>
 
     <div class="footer">
