@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Provider } from "@/context/Provider";
+
+export const metadata: Metadata = {
+  title: "Panel Admin",
+  description: "Sistema de administración",
 import AOSInitializer from "@/components/AOSInitializer";
 import Navbar from "@/components/navbar/Navbar";
 
@@ -22,15 +26,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
         <AOSInitializer />
-        {children}
+       <Provider>{children}</Provider>
       </body>
     </html>
   );
