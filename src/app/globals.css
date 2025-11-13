@@ -17,11 +17,19 @@
     --background: #0a0a0a;
     --foreground: #ededed;
     /* CSS HEX */;
+<<<<<<< HEAD
     --yellow: #e6b400;
     --blue: #0b255c;
     --bluedark: #050a22;
     
 ;
+=======
+    --ice-cold: #b3eeff;
+    --blue: #49c5d1;
+    --yellow: #feda5d;
+    --portage: #8d88e8;
+    --portage: #223790;
+>>>>>>> 61c2eee4c366e69cdd3aea17dcff94832ae4ac36
 
   }
 }
