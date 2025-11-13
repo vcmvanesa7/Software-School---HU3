@@ -14,7 +14,7 @@ export default function BlogSection() {
   return (
     <section className={styles.blog}>
       <div className={styles.header}>
-        <h2>Blog Arcoíris</h2>
+        <h2>Blog</h2>
         <ButtonHome variant="ghost">Ver más</ButtonHome>
       </div>
 
