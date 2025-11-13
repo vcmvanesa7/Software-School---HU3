@@ -7,14 +7,21 @@ interface UserProps {
     password: string
 }
 
-const createUser = ({userName, email, password}:UserProps) => {
+export const createUser = ({ userName, email, password }: UserProps) => {
 
-    const res = axios.post("https://webescuela-production.up.railway.app/api/User",{
-        userName: userName,
-        email: email,
-        roleId: 2,
-        password: password,
+    try {
+        const res = axios.post("https://webescuela-production.up.railway.app/api/auth/register", {
+            userName: userName,
+            email: email,
+            roleId: 2,
+            password: password,
 
-    })
+        })
+
+        return res
+
+    } catch (error) {
+        return error
+    }
 
 }
