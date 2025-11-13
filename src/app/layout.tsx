@@ -1,27 +1,34 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Provider } from "@/context/Provider";
-
-export const metadata: Metadata = {
-  title: "Panel Admin",
-  description: "Sistema de administración",
 import AOSInitializer from "@/components/AOSInitializer";
 import Navbar from "@/components/navbar/Navbar";
+import { Cinzel, Inter, Space_Mono } from "next/font/google";
 
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-cinzel",
+});
 
-const geistSans = Geist({
+const geistSans = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = Space_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  weight: ["400", "700"], 
 });
 
+
 export const metadata: Metadata = {
-  title: "Kirin Art School",
-  description: "A elite place to learn and create art",
+  title: "Panel Admin",
+  description: "Sistema de administración",
+  icons: {
+    icon: "/img/imagotipo.png",
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={cinzel.variable} >
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
         <AOSInitializer />
@@ -39,3 +46,4 @@ export default function RootLayout({
     </html>
   );
 }
+

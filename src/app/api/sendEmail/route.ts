@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     const mensajeHtml = createEmailTemplate();
 
 
-    const logoPath = path.resolve("public/kirin-art-logo.png");
+    const logoPath = path.resolve("public/img/imagotipo.png");
 
     await transporter.sendMail({
       from: `"Kirin Art School" <${userMail}>`,
@@ -35,9 +35,9 @@ export async function POST(req: Request) {
       html: mensajeHtml,
       attachments: [
         {
-          filename: "kirin-art-logo.png",
+          filename: "imagotipo.png",
           path: logoPath,
-          cid: "kirin-art-logo", 
+          cid: "imagotipo.png", 
         },
       ],
     });

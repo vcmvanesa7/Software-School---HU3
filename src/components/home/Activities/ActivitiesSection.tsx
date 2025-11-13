@@ -26,7 +26,7 @@ const activities = [
 export default function ActivitiesSection() {
   return (
     <section className={styles.activities}>
-      <h2>Nuestras Actividades</h2>
+      <h2>OUR ACTIVITIES</h2>
       <div className={styles.grid}>
         {activities.map((a, i) => {
           const Icon = a.icon;

@@ -1,14 +1,15 @@
 .activities {
+  margin: 6rem auto;
   text-align: center;
   padding: 5rem 1rem;
   background: var(--ice-cold);
 }
 
-.activities h2 {
-  font-size: 2rem;
+.activities h2 { 
+  font-size: 3rem;
   font-weight: 800;
-  color: var(--blue);
-  margin-bottom: 2rem;
+  color: var(--bluedark);
+  margin-bottom: 5rem; 
 }
 
 .grid {

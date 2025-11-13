@@ -1,4 +1,8 @@
 @import "tailwindcss";
+:root {
+  font-family: var(--font-cinzel), serif;
+}
+
 
 :root {
   --background: #ffffff;
@@ -20,7 +24,7 @@
     --yellow: #e6b400;
     --blue: #0b255c;
     --bluedark: #050a22;
-    
+    --gold: #BCA16A
 ;
 
   }
