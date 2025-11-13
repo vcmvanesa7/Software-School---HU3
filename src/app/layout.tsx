@@ -4,6 +4,7 @@ import { Provider } from "@/context/Provider";
 import AOSInitializer from "@/components/AOSInitializer";
 import Navbar from "@/components/navbar/Navbar";
 import { Cinzel, Inter, Space_Mono } from "next/font/google";
+import Footer from "@/components/Footer/Footer";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({
         <Navbar />
         <AOSInitializer />
        <Provider>{children}</Provider>
+       <Footer />
       </body>
     </html>
   );

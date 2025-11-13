@@ -11,7 +11,6 @@ export default function HomeLandingPage() {
       <section id="hero"><Hero /></section>
       <section id="activities"><Activities /></section>
       <section id="blog"><BlogSection /></section>
-      <Footer />
     </main>
   );
 }
