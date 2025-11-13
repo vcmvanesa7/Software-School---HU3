@@ -1,6 +1,15 @@
 .blog {
   padding: 4rem 1rem;
   background: #fff;
+  margin-bottom: 8rem;
+}
+
+.blog h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color:#a88f63;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .header {
@@ -10,9 +19,9 @@
   margin-bottom: 2rem;
 }
 
-.header h2 {
+.header__section h2 {
   font-size: 2rem;
-  color: var(--portage-dark);
+  color: #BCA16A;
   font-weight: 800;
 }
 
@@ -24,7 +33,8 @@
 
 .excerpt {
   font-size: 0.95rem;
-  color: #555;
+  color: #a88f63;
   margin: 0.8rem 0;
   line-height: 1.5;
 }
+
