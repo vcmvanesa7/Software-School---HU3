@@ -1,18 +1,15 @@
 "use client";
 import { useState } from "react";
-import style from "./register.module.css"
+import { createUser } from "@/services/User";
+import { useRouter } from "next/router";
 
 const RegisterForm = () => {
-
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState<string | null>(null);
-    const [error, setError] = useState([])
     const [formData, setDataForm] = useState({
-        FullName: "",
         Username: "",
         Email: "",
         Password: "",
-        Grade: ""
 
     })
     const handleChange = (e) => {
@@ -37,6 +34,10 @@ const RegisterForm = () => {
         setLoading(false);
         setMessage(data.message);
 
+        const postUser = await createUser({ userName: formData.Username, email: formData.Email, password: formData.Password })
+        if (postUser?.status === 200) {
+            setTimeout(() => window.location.href="/login", 1500); // ✅ redirección con leve delay opcional
+        }
 
     };
 
@@ -54,20 +55,7 @@ const RegisterForm = () => {
             </div>
             <div className="flex gap-10">
                 <div className="flex flex-col gap-1">
-                    <div>
-                        <label className="block  text-black font-medium">
-                            Full Name:
-                        </label>
-                        <input
-                            type="text"
-                            name="FullName"
-                            placeholder="John Doe"
-                            value={formData.FullName}
-                            onChange={handleChange}
-                            required
-                            className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:shadow-xl"
-                        />
-                    </div>
+
                     <div>
                         <label className="block  text-black font-medium">
                             Username:
@@ -112,24 +100,7 @@ const RegisterForm = () => {
                             className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:shadow-xl"
                         />
                     </div>
-                    <div>
-                        {/* Grade */}
-                        <label className="block  text-black font-medium">
-                            Grade:
-                        </label>
-                        <select
-                            name="Grade"
-                            value={formData.Grade}
-                            onChange={handleChange}
-                            required
-                            className="w-full border border-violet-300 p-2 mb-4 rounded-lg text-black bggray-placeholder-gray-400s:outline-none focus:shadow-xl"
-                        >
-                            <option value="">Selecciona tu grado</option>
-                            <option value="3">3°</option>
-                            <option value="4">4°</option>
-                            <option value="5">5°</option>
-                        </select>
-                    </div>
+
                     <div className=" h-[100px] flex items-center">
                         <button
                             type="submit"
@@ -145,19 +116,19 @@ const RegisterForm = () => {
 
 
 
+                </div>
             </div>
-        </div>
 
 
 
 
 
 
-    {
-        message && (
-            <p className="mt-3 text-center text-violet-700 font-medium">{message}</p>
-        )
-    }
+            {
+                message && (
+                    <p className="mt-3 text-center text-violet-700 font-medium">{message}</p>
+                )
+            }
         </form >
     );
 }
