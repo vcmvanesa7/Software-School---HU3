@@ -7,6 +7,7 @@ import { loginUser } from "@/services/login";
 import { notification } from "@/utils/notification";
 import { ToastContainer } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 export default function LoginPage() {
   const [user, setUser] = useState("");
@@ -25,6 +26,8 @@ export default function LoginPage() {
     try {
       const loggedUser = await loginUser(user, pass);
 
+      
+      Cookies.set("userLogged", JSON.stringify(loggedUser), {expires: 1/48});
       localStorage.setItem("userLogged", JSON.stringify(loggedUser));
       setUserLogged(loggedUser);
       setIsActive(true);
